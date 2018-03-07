@@ -1,0 +1,62 @@
+<!--pages/qrcode/qrcode.wxml-->
+<web-view wx:if="{{showWeb}}" src="https://test-wechat.letulife.com/journey_detail.html?platform=h5/#/main"></web-view> 
+
+<view class='section'>
+  <text class='grouptextfont'>{{group.guideGroupStartTime}}</text>
+  <text class='grouptextfont' wx:if="{{group.guideGroupHeadcount}}">{{group.guideGroupHeadcount}}人团</text>
+  <text class='grouptextfont'>{{group.guideAgencyInfos.guideAgencyName}}</text>
+</view>
+<view class='line'></view>
+<view class='contail'>
+  <text class='qrtext1'>骑行券分发</text>
+  <text class='qrtext2'>将二维码出示给游客</text>
+  <image src='{{mark}}' mode='aspectFit' class='qrimg' bindtap='shareQrCode'></image>
+  <!-- <button size='mini' class='sharebtn' disabled='{{group.isNow==1?false:true}}' open-type="share">点击分享给游客</button> -->
+  <button size='mini' class='sharebtn' disabled='{{group.isNow?false:true}}' bindtap='shareQrCode'>点击放大图片长按发送给朋友</button>
+</view>
+<view class='header'>
+  <text class='headtext'>游客列表</text>
+  <text class='headtext'>{{group.guideGroupRidingcount}}/{{group.guideGroupHeadcount}}</text>
+  <navigator url='/pages/newUser/newUser?source=newUser&guideGroupId={{group.guideGroupId}}'>
+    <button size='mini' class='headbtn' disabled='{{group.isNow?false:true}}'>+ 新增游客</button>
+  </navigator>
+</view>
+
+<view wx:if="{{!userList.length}}" class='tip'>还没有添加游客</view>
+<view wx:if="{{userList.length}}" class='header2'>
+  <text class='head2text'>姓名</text>
+  <text class='head2text'>开锁方式</text>
+  <text class='head2text'>游客状态</text>
+  <text class='head2text'>操作</text>
+</view>
+
+<!-- <view wx:for="{{userList}}">
+  <view class="navigator">
+      <view bindtap='userdetail' class="navigator-text-name">{{item.userName}}</view>
+      <view bindtap='userdetail' class='navigator-text'>{{item.methodName}}</view>
+      <view bindtap='userdetail' class="navigator-text">{{item.statusName}}</view>
+      <button size='mini' bindtap='qrcode' disabled='{{item.status==0?false:true}}'>代开锁</button>
+      <view bindtap='userdetail' class="navigator-arrow"></view>
+  </view>
+</view> -->
+
+<view class="container">
+ <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{userList}}" wx:key="">
+      <view bindtap='userdetail' data-userId="{{item.userId}}" class="content name"> {{item.userRealname}}</view>
+      <!-- <view bindtap="call" class="navigator-text">{{item.userTel}}</view> -->
+      <view bindtap='userdetail' data-userId="{{item.userId}}" class='content' wx:if="{{item.notFinishRentInfo.rentUnlockWay==null}}">无</view>
+      <view bindtap='userdetail' data-userId="{{item.userId}}" class='content'  wx:if="{{item.notFinishRentInfo.rentUnlockWay!=null}}"> {{item.notFinishRentInfo.rentUnlockWay==1?'代开锁':'优惠券'}}</view>
+      <view bindtap='userdetail' data-userId="{{item.userId}}" class="content"> {{item.userState==0?'空闲':'骑行中'}}</view>
+      <view class='content'><button size='mini' bindtap='agent' data-userId="{{item.userId}}" data-userState="{{item.userState}}" disabled='{{group.isNow?false:true}}' >{{item.userState==0?'代开锁':'代还车'}}</button></view>
+      <!-- <image src='../../pic/qrcode.png' class='navigator-image'></image> -->
+      <view class="del" catchtap="del" data-userId="{{item.userId}}" data-groupId="{{item.groupId}}"data-index="{{index}}">删除</view>
+ </view>
+</view>
+
+ <!-- <view class="container">
+ <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{userList}}" wx:key="">
+  <view class="content">xxxxxxxxxxxxxxx</view>
+  <view class="del" catchtap="del" data-index="{{index}}">删除</view>
+ </view>
+</view>  -->
+

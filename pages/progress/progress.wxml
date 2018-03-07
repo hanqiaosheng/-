@@ -1,0 +1,20 @@
+<!-- <progress class='pro' percent='99' show-info stroke-width='20' activeColor='#50cc99'  active active-mode='forwards'></progress>  -->
+
+<view class='container'>
+  <view class="circle-box">
+    <canvas class="circle" style="z-index: -99; width:200px; height:200px;" canvas-id="canvasCircle">
+    </canvas>
+    <canvas class="circle" style="width:200px; height:200px;" canvas-id="canvasArcCir">
+    </canvas>
+      <!-- <view class="draw_btn" bindtap="drawCircle">开始动态绘制</view>  -->
+      <!-- <image src="/pic/data.png" class='img'></image>  -->
+  </view>
+  <view class='result'>
+    <icon wx:if="{{code!=null}}" type="{{code==1?'success':'warn'}}"></icon>
+    <text class='resulttext'>{{msg}}</text>
+  </view>
+   <navigator class='resultbtn' open-type='navigateBack'>
+    <button  bindtap='return' >返回</button>
+  </navigator> 
+  
+</view>

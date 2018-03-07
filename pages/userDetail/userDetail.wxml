@@ -1,0 +1,56 @@
+<!--pages/userDetail/userDetail.wxml-->
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">姓名</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text"  value="{{userName}}"></input>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">手机号</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text"  value="{{userTel}}"></input>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">证件号</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" value="{{id}}"></input>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">状态</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" disabled="{{true}}" placeholder="未获取" value="{{status}}"></input>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">开锁方式</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" disabled="{{true}}" placeholder="未获取" value="{{method}}"></input>
+          </view>
+        </view>
+      </view>
+      <button bindtap="web" class='btn' type="primary" plain>跳转到全域骑游首页</button>
+      <button bindtap="map" class="btn">定位</button>
+      <button wx:if="{{status==1}}" type="primary" disabled='true' class="btn">代开锁</button>
+      <button wx:if="{{true}}" type="primary" bindtap='qrcode' class="btn">代开锁</button>
+      <button type="primary" type="warn" bindtap='call' class="btn">拨打电话</button>
+      <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="btn">我的电话</button>
+    </view>
+  </view>
+</view>
+<web-view wx:if="{{isweb}}" src="https://wechat.letulife.com/journey_detail.html?platform=h5/#/main"></web-view>

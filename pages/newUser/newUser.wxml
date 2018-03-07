@@ -1,0 +1,35 @@
+<!--pages/newUser/newUser.wxml-->
+<view class='blue'></view>
+<view class='contai'>
+  <!-- <view class='border-radius'></view> -->
+  <form bindsubmit="formSubmit" bindreset="formReset">
+  <view class='row'>
+    <!-- <label class='lab'>姓名</label> -->
+    <input name='userRealname' value='{{userRealname}}' placeholder="{{source=='guide'?'导游':'游客'}}姓名"></input>
+  </view>
+  <view class='row'>
+    <!-- <label class='lab'>身份证号</label> -->
+    <input name='userIdcard' value='{{userIdcard}}' type='idcard' placeholder="{{source=='guide'?'导游':'游客'}}身份证号码"></input>
+  </view>
+  <view class='row'>
+    <!-- <label class='lab'>手机号</label> -->
+    <input bindinput='setTel' name='userTel' value='{{userTel}}' type='number' placeholder="{{source=='guide'?'导游':'游客'}}手机号码"></input>
+    <!-- <button size='mini'open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机</button> -->
+  </view>
+  <view class='row'>
+    <!-- <label class='lab'>验证码</label> -->
+    <input name='telCode' type='digit' placeholder='手机验证码'></input>
+    <view class='{{codecss}}' bindtap='getcode' >{{codetext}}</view>
+  </view>
+  <!-- <view class='row'>
+    <input name='psw' password placeholder='输入密码'></input>
+  </view>
+  <view class='row'>
+    <input name='psw' password placeholder='确认密码'></input>
+  </view> -->
+  <button class='btn' plain type='primary' formType="submit" disabled='{{registBtnDisabled}}' loading='{{registBtnLoading}}'>{{source=='guide'?'注册':'添加'}}</button>
+  <!-- <button formType="reset">Reset</button> -->
+  </form>
+</view>
+<image src='/pic/logo.jpg' class='logo'></image>
+

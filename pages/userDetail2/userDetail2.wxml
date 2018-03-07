@@ -1,0 +1,48 @@
+<!--pages/userDetail2/userDetail2.wxml-->
+<view class='cardbg'>
+  <view class='card'>
+    <view class='cardrow'>
+      <text class='cardname'>姓名</text>
+      <text class='cardvalue'>{{user.userRealname}}</text>
+      <button  disabled='{{isNow=="true"?false:true}}'class="btn" size='mini' bindtap='agent' >{{user.userState==0?'代开锁':'代还车'}}</button>
+    </view>
+    <view class='cardrow'>
+      <text class='cardname'>电话</text>
+      <text class='cardvalue'>{{user.userTel}}</text>
+      <!-- <button class="btn" size='mini' bindtap='edit' disabled='{{isNow=="true"?false:true}}' >修改</button> -->
+      <button class='btn' size='mini' bindtap='makephone'>拨打</button>
+    </view>
+    <view class='cardrow'>
+      <text class='cardname'>身份证号</text>
+      <text class='cardvalue'>{{user.userIdcard}}</text>
+    </view>
+    <view class='cardrow'>
+      <text class='cardname'>开锁方式</text>
+      <text class='cardvalue' wx:if="{{user.notFinishRentInfo.rentUnlockWay==null}}">无</text>
+      <text class='cardvalue' wx:if="{{user.notFinishRentInfo.rentUnlockWay!=null}}">{{user.notFinishRentInfo.rentUnlockWay==1?'代开锁':'优惠券'}}</text>
+    </view>
+    <view class='cardrow'>
+      <text class='cardname'>游客状态</text>
+      <text class='cardvalue'>{{user.userState==0?'空闲':'骑行中'}}</text>
+    </view>
+  </view>
+  <text class='title'>行程记录</text>
+  <view class='card2view' wx:for="{{rents}}">
+    <view class='card2'>
+      <view class='cardrow'>
+        <text class='card2name'>开锁时间</text>
+        <text>{{item.starttime}}</text>
+      </view>
+      <view class='cardrow'>
+        <text class='card2name'>车辆编号</text>
+        <text>{{item.bike.bikeCode}}</text>
+      </view>
+      <view class='card2row'>
+        <image class="imagetime" src='../../pic/time.svg'></image>
+        <text>计时:{{item.time}}分钟</text>
+        <image class="imagetime" src='../../pic/money.svg'></image>
+        <text>骑行花费:{{item.rentPrice?item.rentPrice:0}}元</text>
+      </view>
+    </view>
+  </view>
+</view>

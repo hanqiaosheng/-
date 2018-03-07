@@ -1,0 +1,113 @@
+/* pages/userDetail2/userDetail2.wxss */
+page{
+  background-color: #efefef;
+}
+.cardbg{
+  /* height: 100%; */
+  height: 250rpx;
+  background-color: #50cc99;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+   box-sizing: border-box; 
+}
+
+.card{
+  padding: 20rpx 30rpx;  
+  border-radius: 5px;
+  margin: 22rpx; 
+  background-color: white;
+}
+.cardrow{
+  color: #333;
+  font-size: 11pt;
+  line-height: 30px;
+}
+.cardname{
+  font-weight: 400; 
+  width: 200rpx;
+  text-align: left; 
+  line-height: 44px;
+  /* color: #333; */
+  font-size: 16px;
+  /* text-align: justify; */
+  display: inline-block;
+}
+.cardvalue{
+  color: #333;
+  font-size: 16px;
+}
+.btn{
+  position: absolute;
+  height: 60rpx;
+  width: 150rpx;
+  right:30rpx;
+  color: white;
+  background-color: #50cc99;
+}
+.title{
+  font-size: 14pt;
+  padding:0 20rpx;
+  margin: 10rpx 0;
+  border-left: 3px solid #50cc99;
+}
+.line{
+  width:1px;
+  border:1px solid red;
+  float:left;
+  height:700px;
+}
+.card2view{
+  /* padding: 10rpx;  */
+  position:relative;  
+  margin: 0 0 0 50rpx;
+  border-left: 1rpx solid #aaa;
+  /* border-bottom: 1rpx dashed #aaa; */
+}
+.card2{
+  /* box-shadow:inset -5rpx 0 0 0 red; */
+  padding: 20rpx;
+  border-radius: 10px;
+  margin:0rpx 15rpx 30rpx 20rpx;
+  background-color: white;
+  box-shadow: 4px 4px 5px #888888;
+}
+.card2view::after{
+  content:'';
+  border-radius:100%;
+  width:20rpx;
+  height:20rpx;
+  position:absolute;  
+  top:80rpx; 
+  left:-10rpx; 
+  background:#50cc99;
+}
+.card2::after{
+  /* border-bottom: 1rpx dashed #aaa;  */
+  content:''; 
+  width:93%;
+  height:0;
+  position:absolute;  
+  top:210rpx; 
+  left:30rpx; 
+}
+.imagetime{
+  height: 40rpx;
+  width:40rpx;
+}
+.card2row{
+  color: #333;
+  font-size: 11pt;
+   display: flex; 
+   flex-direction: row; 
+  align-items: center;
+  justify-content: space-between;
+  padding: 10rpx 120rpx 0 0;
+  box-sizing: border-box;
+}
+.card2name{
+  width: 200rpx;
+  text-align: left; 
+  display: inline-block;
+
+}

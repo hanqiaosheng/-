@@ -1,0 +1,6 @@
+/* pages/userDetail/userDetail.wxss */
+@import "../common/weui.wxss";
+
+.btn{
+  margin: 15px
+}

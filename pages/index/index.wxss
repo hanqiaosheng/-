@@ -1,0 +1,79 @@
+/**index.wxss**/
+@import "../common/weui.wxss";
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 30px;
+}
+
+.btn{
+  margin:15px
+}
+.scrollx{
+  white-space:nowrap;/*强制文本在一行,除非遇到br换行标签*/
+  display:flex;
+}
+.scrolly{
+  height: 100px;
+}
+.xredview{
+  height:100px;
+  background-color:red;
+  width:800rpx;
+  display:inline-block;
+}
+.xblueview{
+  height:100px;
+  background-color:blue;
+  width:800rpx;
+  display:inline-block;
+}
+.yredview{
+  height:100px;
+  background-color:red;
+}
+.yblueview{
+  height:100px;
+  background-color:blue;
+}
+
+
+
+
+.controls {
+  position: relative;
+  top: 50%;
+  height: 50px;
+  margin-top: -25px;
+  display: flex;
+}
+.play,.pause,.time {
+  flex: 1;
+  height: 100%;
+}
+.time {
+  text-align: center;
+  background-color: rgba(0, 0, 0, .5);
+  color: white;
+  line-height: 50px;
+}
+.img {
+  width: 40px;
+  height: 40px;
+  margin: 5px auto;
+}

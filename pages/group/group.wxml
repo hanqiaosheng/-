@@ -1,0 +1,69 @@
+<!--pages/group/group.wxml-->
+
+<!-- <view wx:for="{{groupList}}">
+  <navigator url="/pages/qrcode/qrcode" class="navigator">
+      <view class="navigator-text">{{item.date}}</view>
+      <view class="navigator-text">{{item.scen}}</view>
+      <view class="navigator-text">{{item.travelName}}</view>
+      <view class="navigator-text">{{item.num}}人团</view>
+      <view class="navigator-text" wx:if="{{item.status==1}}">进行中</view>
+      <view class="navigator-text" wx:if="{{item.status==2}}">完成</view>
+      <image wx:if="{{item.mothod==1}}" src='../../pic/ticket.png' class='navigator-image'></image>
+      <image wx:if="{{item.mothod==2}}" src='../../pic/qrcode.png' class='navigator-image'></image>
+      <view class="navigator-arrow"></view>
+  </navigator>
+</view> -->
+
+<!-- 
+  <view class="section">
+    <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+      <view>
+        选择日期: {{date}}
+      </view>
+    </picker>
+  </view> -->
+
+  <view class="weui-search-bar2">
+    <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+            <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+            <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{wxSearchData.value}}"
+                   bindfocus="wxSerchFocus" bindinput="wxSearchInput" bindblur="wxSearchBlur"  />
+            <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                <icon type="clear" size="14"></icon>
+            </view>
+        </view>
+    </view>
+  </view>
+  <view wx:if="{{!groupList.length}}" class='tip'>未查询到您的团列表</view>
+  <view wx:if="{{groupList.length}}" class='group'>
+    <view class='header3'>
+      <text class='head3text'>开始日期</text>
+      <text class='head3text'>景区</text>
+      <text class='head3text'>旅行社</text>
+      <text class='head3text'>游客人数</text>
+    </view>
+    <navigator url="/pages/qrcode/qrcode?groupId={{item.guideGroupId}}" open-type="navigate" 
+    class="{{(item.isNow!=1) ? cssgroupList : cssgroupList2}}"  
+    wx:for="{{groupList}}">
+        <text class='groupListText'>{{item.startTime}}</text>
+        <text class='groupListText'>{{item.guideGroupScenic}}</text>
+        <text class='groupListText'>{{item.guideAgencyInfos.guideAgencyName}}</text>
+        <text class='groupListText'>{{item.guideGroupRidingcount}}/{{item.guideGroupHeadcount}}</text>
+        <button size='mini' wx:if='{{item.isNow!=1}}' class='btn'>查看</button>
+        <button size='mini' wx:if='{{item.isNow==1}}' class='btn2'>发券</button>
+        <!-- <text wx:if="{{item.status==1}}" class='groupListText'>进行中</text>
+        <text wx:if="{{item.status==2}}" class='groupListText'>完成</text> -->
+    </navigator>
+  </view>
+
+
+    <!-- <navigator url="/pages/qrcode/qrcode" open-type="switchTab" class='aa' wx:for="{{groupList}}">
+        <text class='groupListText'>{{item.date}}</text>
+        <text class='groupListText'>{{item.scen}}</text>
+        <text class='groupListText'>{{item.travelName}}</text>
+        <text class='groupListText'>{{item.num}}/45</text>
+        <button size='mini' class='btn'>查看</button>
+        <!-- <text wx:if="{{item.status==1}}" class='groupListText'>进行中</text>
+        <text wx:if="{{item.status==2}}" class='groupListText'>完成</text> -->
+    <!-- </navigator> --> 

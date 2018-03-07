@@ -1,0 +1,94 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+
+<canvas style="width: 100px; height: 100px;" canvas-id="firstCanvas"></canvas>
+
+  <!-- <web-view wx:if="{{isweb}}" src="https://mp.weixin.qq.com/"></web-view> -->
+  <view class='btnList'>
+    <!-- <navigator url='/pages/newUser/newUser'>新增游客</navigator> -->
+    <button class='btn' bindtap='re' type="primary" plain>发起本地开发请求</button>
+    <button class='btn' bindtap='pay'>微信支付</button>
+    <button class='btn' bindtap='getclip'>获取剪贴板内容</button>
+    <button class='btn' bindtap='repeat'>重复任务</button>
+    <button class='btn' bindtap='canvas'>绘图</button>
+    <button class='btn' bindtap='aaa'>开锁中...</button>
+    <button bindtap="map" class="btn">定位</button>
+    <button type="primary" type="warn" bindtap='call' class="btn">拨打电话</button>
+    <button class='btn' bindtap='chart'>图表</button>
+    <button class='btn' open-type="contact">客服</button>
+    <button class='btn' bindtap='top'>Tip</button>
+    <button class='btn' bindtap='address'>收货地址</button>
+    <button class='btn' bindtap='vib'>手机振动</button>
+    <button class='btn' bindtap='auth'>生物认证</button>
+    <button class='btn' bindtap='set'>设置</button>
+    <button class='btn' bindtap='run'>维新运动</button>
+    <button class='btn' bindtap='card'>卡券</button>
+    <button class='btn' bindtap='web' disabled>本窗口内打开网页</button> 
+    <button class='btn' bindtap='record'>录音</button>
+    <button class='btn' bindtap='image'>拍照或选择图片</button>
+    <button class='btn' bindtap='video'>拍摄或选择视频</button>
+    <button class='btn' bindtap='upload'>上传和下载</button>
+    <button class='btn' bindtap='compass'>罗盘</button>
+    <button class='btn' bindtap='acc'>加速度</button>
+  </view>
+</view>
+
+<text>scroll-view 横向滚动视图区域</text>
+<scroll-view scroll-x class='scrollx'>
+  <view class='xredview'></view>
+  <view class='xblueview'></view>
+</scroll-view>
+<text>scroll-view 纵向滚动视图区域</text>
+<scroll-view scroll-y class='scrolly'>
+  <view class='yredview'></view>
+  <view class='yblueview'></view>
+</scroll-view>
+<text>swiper 滑块视图容器</text>
+<swiper class='swiper' indicator-dots autoplay interval='1000' duration="500">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}"  style='width:100%'/>
+    </swiper-item>
+  </block>
+</swiper>
+<text>movable-view 可移动区域</text>
+<movable-area style="height: 200px;width: 200px;background:red;left:200rpx">
+  <movable-view style="height: 50px; width: 50px; background: blue;" direction="all"    out-of-bounds></movable-view>
+</movable-area>
+<text>cover-view 覆盖在视频上的图片和文本 视频弹幕</text>
+<view class='container'>
+<video id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" controls="{{false}}" event-model="bubble">
+  <cover-view class="controls">
+    <cover-view class="play" bindtap="play">
+      <cover-image class="img" src="/pic/logo.jpg" />
+    </cover-view>
+    <cover-view class="pause" bindtap="pause">
+      <cover-image class="img" src="/pic/logo.jpg" />
+    </cover-view>
+    <cover-view class="time">00:00</cover-view>
+  </cover-view>
+</video>
+</view>
+<text>map 地图和标记点</text>
+<map id="map" longitude="113.324520" latitude="23.099994" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 300px;"circles='{{circles}}'></map>
+ 
+<text>camera组件</text>
+ <camera device-position="back" flash="off" binderror="error" style="width: 100%; height: 300px;"></camera> 
+<button type="primary" bindtap="takePhoto">拍照</button>
+<view>预览</view>
+<image mode="widthFix" src="{{src}}" style='width:400px'></image> 
+
+<text>视频直播播放流</text>
+<live-player src="https://" mode="RTC" autoplay bindstatechange="statechange" style="width: 400px; height: 225px;" />
+<text>视频直播推送流</text>
+ <live-pusher url="https://" mode="RTC" autopush bindstatechange="statechange" style="width: 400px; height: 225px;" />

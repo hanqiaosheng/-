@@ -1,0 +1,28 @@
+{
+  "pages": [
+    "pages/group/group",
+    "pages/index/index",
+    "pages/qrcode/qrcode",
+    "pages/regist/regist",
+    "pages/logs/logs",
+    "pages/userDetail/userDetail",
+    "pages/userDetail2/userDetail2",
+    "pages/progress/progress",
+    "pages/charts/line/line",
+    "pages/charts/area/area",
+    "pages/charts/column/column",
+    "pages/charts/pie/pie",
+    "pages/charts/radar/radar",
+    "pages/charts/ring/ring",
+    "pages/charts/scrollline/scrollline",
+    "pages/newUser/newUser",
+    "pages/common/common"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "white",
+    "navigationBarTitleText": "全域旅游",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh":true
+  }
+}

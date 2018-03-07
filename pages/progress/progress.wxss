@@ -1,0 +1,60 @@
+/* pages/progress/progress.wxss */
+.pro{
+
+}
+.text{
+  font-weight: 400;
+  float: left;
+  width: 23%;
+  text-align: center;
+  line-height: 44px;
+  color: #333;
+  font-size: 14px;
+}
+
+.circle-box {
+  /* text-align: center; */
+  /* margin-top: 10px; */
+}
+
+.circle {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.draw_btn {
+  width: 35vw;
+  position: absolute;
+  top: 33vw;
+  right: 0;
+  left: 0;
+  margin: auto;
+  border: 1px #000 solid;
+  border-radius: 5vw;
+}
+.img{
+  width: 400rpx;
+  height: 400rpx;
+  position: absolute;
+  top: 150rpx;
+  right: 0; 
+  left: 0;
+  margin: auto;
+}
+.result{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute; 
+  top:330px;
+}
+.resulttext{
+  margin-left: 20rpx; 
+}
+.resultbtn{
+  position: absolute; 
+  top:500px;
+  width: 500rpx;
+}

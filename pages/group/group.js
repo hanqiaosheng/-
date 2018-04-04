@@ -1,6 +1,7 @@
 // pages/group/group.js
 const app = getApp()
 const util = require('../../utils/util.js')
+
 Page({
 
   /**
@@ -9,7 +10,107 @@ Page({
   data: {
     cssgroupList: 'groupList',
     cssgroupList2: 'groupList2',
+    showModalStatus: false,
+    ismoney: false,
+    groupList:[],
+    
+    selectPerson: true,
+    firstPerson: '全部',
+    selectArea: false
   },
+
+  //点击选择类型
+  clickPerson: function () {
+    var selectPerson = this.data.selectPerson;
+    if (selectPerson == true) {
+      this.setData({
+        selectArea: true,
+        selectPerson: false,
+      })
+    } else {
+      this.setData({
+        selectArea: false,
+        selectPerson: true,
+      })
+    }
+  },
+  //点击切换
+  mySelect: function (e) {
+    this.setData({
+      firstPerson: e.target.dataset.me,
+      selectPerson: true,
+      selectArea: false,
+    })
+  },
+
+  powerDrawer: function (e) {
+    var currentStatu = e.currentTarget.dataset.statu;
+    this.util(currentStatu)
+  },
+  util: function (currentStatu) {
+    /* 动画部分 */
+    // 第1步：创建动画实例 
+    var animation = wx.createAnimation({
+      duration: 300, //动画时长 
+      timingFunction: "ease-in", //线性 
+      delay: 0 //0则不延迟 
+    });
+
+    // 第2步：这个动画实例赋给当前的动画实例 
+    this.animation = animation;
+    animation.opacity(0).translateY(0).step();
+    // 第4步：导出动画对象赋给数据对象储存 
+    this.setData({
+      animationData: animation.export()
+    })
+    setTimeout(function () {
+      animation.opacity(1).translateY(50).step()
+      // 给数据对象储存的第一组动画，更替为执行完第二组动画的动画对象 
+      this.setData({
+        animationData: animation
+      })
+
+      //关闭抽屉 
+      if (currentStatu == "close") {
+        this.setData(
+          {
+            showModalStatus: false
+          }
+        );
+      }
+    }.bind(this), 200)
+
+    // 显示抽屉 
+    if (currentStatu == "open") {
+      this.setData(
+        {
+          showModalStatus: true
+        }
+      );
+    }
+  },
+  //跳转邀请码
+  toast: function () {
+    wx.navigateTo({
+      url: '../invitation/invitation'
+    })
+  },
+  //跳转骑行统计
+  census: function () {
+    wx.navigateTo({
+      url: '../census/census',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  //跳转我的钱包
+  wallet: function () {
+    wx.navigateTo({
+      url: '../wallet/wallet'
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -21,7 +122,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
@@ -41,7 +142,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
@@ -59,7 +160,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
@@ -70,7 +171,7 @@ Page({
       path: '/pages/group/group',
     }
   },
-  
+
   /**
    * 选择日期
    */
@@ -79,20 +180,20 @@ Page({
       date: e.detail.value
     })
   },
-  
+
   /**
    * 刷新
    */
   refresh() {
-    var that = this 
+    var that = this
     wx.showLoading({
       title: '加载中...',
-      mask: true
+      mask: true,
     })
     wx.getStorage({
       key: 'guideId',
       success: res => {
-        if (res.data == null || res.data == undefined){
+        if (res.data == null || res.data == undefined) {
           util.login()
         }
         wx.request({
@@ -100,12 +201,13 @@ Page({
           data: {
             guideId: res.data
           },
+          
           success: res => {
-            if(res.statusCode != 200){
+            if (res.statusCode != 200) {
               wx.showModal({
                 title: 'error',
                 content: '服务器状态码' + res.statusCode + ',请联系客服处理',
-                showCancel:false
+                showCancel: false
               })
               return
             }
@@ -114,21 +216,22 @@ Page({
               d.setTime(v.guideGroupStartTime)
               v.startTime = d.toLocaleDateString()
               if (v.guideGroupEndTime > new Date().valueOf()
-              // &&new Date().valueOf() > v.guideGroupStartTime
-              ){//判断是否在团开锁结束时间内 以控制出团状态
+                // &&new Date().valueOf() > v.guideGroupStartTime
+              ) {//判断是否在团开锁结束时间内 以控制出团状态
                 v.isNow = true
               }
             })
             this.setData({
               groupList: res.data.groupList.sort(that.sortDate)
             })
+            console.log(that.sortDate)
           },
-          complete:function(){
+          complete: function () {
             wx.hideLoading()
           }
         })
       },
-      fail: function() {
+      fail: function () {
         wx.hideLoading()
         util.login()
       }
@@ -138,12 +241,12 @@ Page({
   /**
    * 团列表排序  按进行中-未进行   时间大-时间小  排序
    */
-  sortDate(a,b){
-    if(a.isNow==b.isNow){
+  sortDate(a, b) {
+    if (a.isNow == b.isNow) {
       return b.guideGroupStartTime - a.guideGroupStartTime
-    }else {
-      return a.isNow?-1:1
+    } else {
+      return a.isNow ? -1 : 1
     }
   }
-  
+
 })

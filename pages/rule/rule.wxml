@@ -1,0 +1,11 @@
+<!--pages/rule/rule.wxml-->
+<view class='rulecenter'>
+  <text class='ruletext'>如何邀请游客骑行？</text>
+  <text class='ruletest'>将此二维码直接出示活通过分享给您的游客进行扫码</text>
+  <text class='ruletext'>怎样才算邀请成功？</text>
+  <text class='ruletest'>通过扫描您分享的二维码注册领劵并成功骑行的游客算邀请成功</text>
+  <text class='ruletext'>邀请成功会得到什么？</text>
+  <text class='ruletest'>每邀请一名游客通过扫描您分享的二维码成功骑行，即可获得游客实际付款金额15%的红包奖励；每日累计邀请每满20人骑行即可获得额外5元红包奖励，奖励不设上限</text>
+  <text class='ruletext'>获得的奖励如何发放？</text>
+  <text class='ruletest'>发放的奖励会实时到账，可在我的钱包查看；奖励可以随时提现到您的微信零钱</text>
+</view>

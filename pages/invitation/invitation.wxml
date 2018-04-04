@@ -1,0 +1,36 @@
+<!--pages/invitation/invitation.wxml-->
+<view style='padding:0 15px'>
+<view class='contail'>
+  <image src='../../pic/mark2.jpg' mode='aspectFit' class='qrimg' bindtap='shareQrCode'></image>
+  <!-- <button size='mini' class='sharebtn' disabled='{{group.isNow==1?false:true}}' open-type="share">点击分享给游客</button> -->
+  <button size='mini' class='sharebtn'  type='warn' disabled='{{group.isNow?false:true}}' bindtap='shareQrCode'>
+  <text class='invitest'>点击邀请好友</text></button>
+</view>
+
+<view class="invittest">
+<text class='invittest1'>邀请规则：</text>
+<text class='invittest2'>1.每邀请1位游客通过扫描您分享的二维码成功骑行即可获得</text>
+<text class='invittest2'>2.每天累计每邀请20人骑行即可额外获得5元红包奖励，不设上限</text>
+</view>
+</view>
+
+ <view class='header'>
+  <text class='headtext'>游客列表</text>
+<text class='headtext'>今日成功邀请0人</text>
+</view> 
+
+  <view wx:if="{{!userList.length}}" class='tip'>还没有添加游客</view> 
+ <view wx:if="{{userList.length}}" class='header2'> 
+  <text class='head2text'>用户</text>
+  <text class='head2text'>骑行状态</text>
+</view> 
+<view class="cont">
+      <view  class="cont-name">
+      <text class='conttest1'>123xxxxx4567</text>
+      <text class='conttest2'>12313</text>
+      </view>
+      <view  class="conttest"> 骑行中</view>
+</view>
+
+
+

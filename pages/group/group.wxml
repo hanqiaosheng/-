@@ -23,8 +23,16 @@
     </picker>
   </view> -->
 
-  <view class="weui-search-bar2">
-    <view class="weui-search-bar__form">
+
+<view class="weui-search-bar2">
+
+
+
+
+
+
+  <!-- 2018.3.26暂时去掉 -->
+  <!-- <view class="weui-search-bar__form">
         <view class="weui-search-bar__box">
             <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
             <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{wxSearchData.value}}"
@@ -33,32 +41,137 @@
                 <icon type="clear" size="14"></icon>
             </view>
         </view>
+    </view> -->
+
+  <!-- 2018.3.26改版-->
+  <!--button-->
+  <view class='but'>
+    <image src='../../pic/0328-2.png' class="qimge2" bindtap="powerDrawer" data-statu="open"></image>
+
+    <view class="phone_one" bindtap="clickPerson">
+      <view class="phone_personal">{{firstPerson}}</view>
+      <image src="../../pic/jiantou.png" class="personal_image {{selectArea ? 'rotateRight' :''}}"></image>
+    </view>
+
+  </view>
+</view>
+
+<view class="person_box">
+  <view class="phone_select" hidden="{{selectPerson}}">
+    <view class="select_one" bindtap="mySelect" data-me="全部">全部</view>
+    <view class="select_one" bindtap="mySelect" data-me="已出团">已出团</view>
+    <view class="select_one" bindtap="mySelect" data-me="待出团">待出团</view>
+  </view>
+
+  <!--mask-->
+  <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+  <!--content-->
+  <!--使用animation属性指定需要执行的动画-->
+  <view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
+    <!--drawer content-->
+    <view class="drawer_content">
+
+      <!-- <view class="drawer_title lin">
+        <image src='../../pic/0328-4.png' class='qimge'></image>
+        <text class='test'>首页</text>
+        <image src='../../pic/0328-9.png' class='qimge1'></image>
+      </view> -->
+
+      <view class="drawer_title lin" bindtap="toast">
+        <image src='../../pic/0328-5.png' class='qimge'></image>
+        <text class='test'>邀请码</text>
+        <image src='../../pic/0328-9.png' class='qimge1'></image>
+      </view>
+
+      <view class="drawer_title lin" bindtap="census">
+        <image src='../../pic/0328-6.png' class='qimge'></image>
+        <text class='test'>骑行统计</text>
+        <image src='../../pic/0328-9.png' class='qimge1'></image>
+      </view>
+
+      <view class="drawer_title lin" bindtap='wallet'>
+        <image src='../../pic/0328-7.png' class='qimge'></image>
+        <text class='test'>我的钱包</text>
+        <image src='../../pic/0328-9.png' class='qimge1'></image>
+      </view>
+
+      <navigator wx:if="{{ismoney}}" url='/pages/recharge/recharge' class="drawer_title lin">
+        <image src='../../pic/0328-8.png' class='qimge'></image>
+        <text class='test'>我的押金</text>
+        <image src='../../pic/0328-9.png' class='qimge1'></image>
+      </navigator>
+      <navigator wx:else url='/pages/recharge2/recharge2' class="drawer_title lin">
+        <image src='../../pic/0328-8.png' class='qimge'></image>
+        <text class='test'>我的押金</text>
+        <image src='../../pic/0328-9.png' class='qimge1'></image>
+      </navigator>
+
+      <navigator url='/pages/rule/rule' class="drawer_title">
+        <image src='../../pic/0330-2.png' class='qimge'></image>
+        <text class='test'>规则说明</text>
+        <image src='../../pic/0328-9.png' class='qimge1'></image>
+      </navigator>
+
     </view>
   </view>
-  <view wx:if="{{!groupList.length}}" class='tip'>未查询到您的团列表</view>
-  <view wx:if="{{groupList.length}}" class='group'>
-    <view class='header3'>
-      <text class='head3text'>开始日期</text>
-      <text class='head3text'>景区</text>
-      <text class='head3text'>旅行社</text>
-      <text class='head3text'>游客人数</text>
+
+
+
+</view>
+<view wx:if="{{!groupList.length}}" class='top'>
+  <image class='qimages' src='../../pic/0328-1.png'></image>
+  <text class='groupListText1' style='padding-bottom:8px'>暂时没有旅游团</text>
+  <text class='groupListText1'>请联系旅行社建团哦~</text>
+</view>
+<view wx:if="{{groupList.length}}" class='group'>
+  <navigator url="/pages/qrcode/qrcode?groupId={{item.guideGroupId}}" open-type="navigate" class="{{(item.isNow!=1) ? cssgroupList : cssgroupList2}}" wx:for="{{groupList}}">
+
+    <view class="groupList3" style='background:url("../../pic/logo.jpg") center/100% no-repeat;opacity: 0.7' wx:if="{{item.isNow==1}}">
+      <text class='test-group'>待出团</text>
+      <text class='test-group'>{{item.guideGroupHeadcount}}人</text>
     </view>
-    <navigator url="/pages/qrcode/qrcode?groupId={{item.guideGroupId}}" open-type="navigate" 
-    class="{{(item.isNow!=1) ? cssgroupList : cssgroupList2}}"  
-    wx:for="{{groupList}}">
+    <view class="groupList4" style='background:url("../../pic/logo.jpg") center/100% no-repeat;' wx:else></view>
+    <view class='test-name' wx:if="{{item.isNow==1}}">
+      <view>
+        <text class='groupListText'>出团时间：</text>
         <text class='groupListText'>{{item.startTime}}</text>
-        <text class='groupListText'>{{item.guideGroupScenic}}</text>
-        <text class='groupListText'>{{item.guideAgencyInfos.guideAgencyName}}</text>
-        <text class='groupListText'>{{item.guideGroupRidingcount}}/{{item.guideGroupHeadcount}}</text>
-        <button size='mini' wx:if='{{item.isNow!=1}}' class='btn'>查看</button>
-        <button size='mini' wx:if='{{item.isNow==1}}' class='btn2'>发券</button>
-        <!-- <text wx:if="{{item.status==1}}" class='groupListText'>进行中</text>
+      </view>
+      <text class='groupListText1'>{{item.guideGroupScenic}}</text>
+      <text class='groupListText1'>{{item.guideAgencyInfos.guideAgencyName}}</text>
+    </view>
+    <view class='test-name' wx:else>
+      <view>
+        <text class='groupListText'>出团时间：</text>
+        <text class='groupListText'>{{item.startTime}}</text>
+      </view>
+      <text class='groupListText1'>{{item.guideGroupScenic}}</text>
+      <view>
+        <text class='groupListText1' wx:if="{{item.guideAgencyInfos.guideAgencyName == null }}">{{item.guideAgencyInfos.guideAgencyName}}</text>
+        <text class='groupListText1' wx:else style="margin-right:6px">{{item.guideAgencyInfos.guideAgencyName}}</text>
+        <text class='groupListText2'>已出团{{item.guideGroupHeadcount}}人</text>
+      </view>
+    </view>
+    <button size='mini' wx:if='{{item.isNow!=1}}' class='btn'>查看</button>
+    <button size='mini' wx:if='{{item.isNow==1}}' class='btn2'>发券</button>
+    <!-- <text wx:if="{{item.status==1}}" class='groupListText'>进行中</text>
         <text wx:if="{{item.status==2}}" class='groupListText'>完成</text> -->
-    </navigator>
-  </view>
+  </navigator>
 
 
-    <!-- <navigator url="/pages/qrcode/qrcode" open-type="switchTab" class='aa' wx:for="{{groupList}}">
+  <!-- <navigator url="/pages/qrcode/qrcode?groupId={{item.guideGroupId}}" open-type="navigate" class="{{(item.isNow!=1) ? cssgroupList : cssgroupList2}}" wx:for="{{groupList}}">
+    <text class='groupListText'>{{item.startTime}}</text>
+    <text class='groupListText'>{{item.guideGroupScenic}}</text>
+    <text class='groupListText'>{{item.guideAgencyInfos.guideAgencyName}}</text>
+    <text class='groupListText'>{{item.guideGroupRidingcount}}/{{item.guideGroupHeadcount}}</text>
+    <button size='mini' wx:if='{{item.isNow!=1}}' class='btn'>查看</button>
+    <button size='mini' wx:if='{{item.isNow==1}}' class='btn2'>发券</button>
+    <!-- <text wx:if="{{item.status==1}}" class='groupListText'>进行中</text>
+        <text wx:if="{{item.status==2}}" class='groupListText'>完成</text> -->
+  <!-- </navigator> -->
+</view>
+
+
+<!-- <navigator url="/pages/qrcode/qrcode" open-type="switchTab" class='aa' wx:for="{{groupList}}">
         <text class='groupListText'>{{item.date}}</text>
         <text class='groupListText'>{{item.scen}}</text>
         <text class='groupListText'>{{item.travelName}}</text>
@@ -66,4 +179,4 @@
         <button size='mini' class='btn'>查看</button>
         <!-- <text wx:if="{{item.status==1}}" class='groupListText'>进行中</text>
         <text wx:if="{{item.status==2}}" class='groupListText'>完成</text> -->
-    <!-- </navigator> --> 
+<!-- </navigator> -->

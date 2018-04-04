@@ -1,0 +1,34 @@
+/* pages/recharge/recharge.wxss */
+.chargestyle{
+  background: #F0EFF5;
+  padding: 6px 15px;
+  display: flex;
+  align-items: center;
+}
+.imgestyle{
+  width: 25px;
+  height: 25px;
+  margin-right: 3px
+}
+.chargestyles{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px
+}
+.chargestyles-right{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+button{
+width: 60px;
+height: 30px;
+background: #50cc99;
+font-size: 14px;
+color: white;
+padding: 5px;
+ display: flex;
+  align-items: center;
+  justify-content: center;
+}

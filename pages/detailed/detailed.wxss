@@ -1,0 +1,38 @@
+/* pages/detailed/detailed.wxss */
+
+.navber {
+  display: flex;
+  height: 52px;
+  border-bottom: 1px #ccc solid;
+}
+
+.itemtest {
+  font-size: 16px;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.itemtest.active {
+  background-color: #50cc99;
+  color: white;
+}
+
+.barstyle {
+  padding: 0 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px #ccc solid;
+}
+
+.bertestleft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 10px 0;
+}

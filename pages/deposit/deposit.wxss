@@ -1,0 +1,33 @@
+/* pages/deposit/deposit.wxss */
+
+.viewbox {
+  padding: 0 15px;
+  margin-top: 15px;
+}
+
+.namebox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 17px;
+  border-bottom: 1px #e5e3e3 solid;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+.namebox1 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.viewbox2 {
+  margin-bottom: 30px;
+  font-size: 17px;
+}
+
+button {
+  background-color: #ff8361;
+  color: #fff;
+  font-size: 17px;
+}

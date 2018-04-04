@@ -1,0 +1,20 @@
+<!--pages/detailed/detailed.wxml-->
+<view class='navber'>
+  <text wx:for="{{navber}}" wx:key="{{unique}}" data-idx="{{index}}" bindtap='navbarTap' class="itemtest {{currentTop==index ? 'active' : ''}}">{{item}}</text>
+</view>
+
+<navigator url='/pages/money/money' hidden='{{currentTop !==0}}' class='barstyle'>
+  <view class='bertestleft'>
+    <text style='font-size:16px;margin-bottom:5px'>骑行奖励</text>
+    <text style='font-size:13px'>12345</text>
+  </view>
+  <text style='font-size:16px'>+80</text>
+</navigator>
+
+<navigator url='/pages/money/money' hidden='{{currentTop !==1}}' class='barstyle'>
+  <text style='font-size:16px'>-80</text>
+  <view class='bertestleft'>
+    <text style='font-size:16px;margin-bottom:5px'>已到账</text>
+    <text style='font-size:13px'>12345</text>
+  </view>
+</navigator>

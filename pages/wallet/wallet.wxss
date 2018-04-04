@@ -1,0 +1,60 @@
+/* pages/wallet/wallet.wxss */
+
+.boxstyle {
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  background: #f0eff5;
+}
+
+.boxstyle1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.teststyle {
+  font-size: 18px;
+  color: #161616;
+}
+
+.teststyle1 {
+  font-size: 14px;
+  color: #92a0bb;
+  padding-top: 3px;
+  margin-left: 10px;
+}
+
+.teststyle2 {
+  font-size: 18px;
+  color: #92a0bb;
+}
+
+.imgstyle {
+  width: 25px;
+  height: 25px;
+}
+
+.rulestyle {
+  margin: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.ruletest {
+  font-size: 18px;
+  color: #161616;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.ruletest1 {
+  font-size: 14px;
+  color: #acacac;
+  margin-bottom: 10px;
+}

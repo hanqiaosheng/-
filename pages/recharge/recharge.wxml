@@ -1,0 +1,11 @@
+<!--pages/recharge/recharge.wxml-->
+<view>
+<view class='chargestyle'><image src='../../pic/0403-01.png' class='imgestyle'></image><text style='font-size:15px;color:#969697'>押金退回后，您就不能帮游客代开锁了哦！</text></view>
+
+<view class='chargestyles'>
+<text style='font-size:18px;'>我的押金</text>
+<view class='chargestyles-right'><text style='font-size:18px;color:#969697;margin-right:3px'>199元</text><button bindtap='point'>退押金</button></view>
+</view>
+
+</view>
+

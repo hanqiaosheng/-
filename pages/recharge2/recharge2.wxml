@@ -1,0 +1,19 @@
+<!--pages/recharge2/recharge2.wxml-->
+<view class='content'>
+  <view class='contenttest'>需押金199元，您当前的押金为0元</view>
+  <view class='rechage contenttest'>
+    <text>押金 （随时退）</text>
+    <text>￥199</text>
+  </view>
+
+  <view class='rechage contenttest'>
+    <text>微信支付</text>
+    <icon type='success' size='25' color='#50cc99' />
+  </view>
+
+  <button>去充值</button>
+
+  <text class='ruletext'>温馨提示：</text>
+  <text class='ruletest'>为保障平台车辆安全，需要您缴纳199元押金访客进行“代游客开锁”操作，提示并监督游客骑行结束后定点还车，保证“代开锁”车辆的安全；在没有您代开锁的车辆状态异常的情况下，押金可随时申请原路退回到您的账户。</text>
+
+</view>

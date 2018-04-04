@@ -1,0 +1,16 @@
+/* pages/rule/rule.wxss */
+.rulecenter{
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px;
+  margin-top: 15px
+}
+.ruletext{
+  font-size: 18px;
+  margin-top: 10px
+}
+.ruletest{
+  font-size: 16px;
+  color: #A9A9A9;
+  margin: 8px 0
+}

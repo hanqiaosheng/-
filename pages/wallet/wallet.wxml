@@ -1,0 +1,26 @@
+<!--pages/wallet/wallet.wxml-->
+<view>
+  <view class='boxstyle'>
+    <view class='boxstyle1'>
+      <text class='teststyle'>账户余额：20.00元</text>
+      <text class='teststyle1' bindtap='deposit'>提现到微信</text>
+    </view>
+    <view class='boxstyle1' bindtap='detailed'>
+      <text class='teststyle2'>明细</text>
+      <image src='../../pic/0330-1.png' class='imgstyle'></image>
+    </view>
+  </view>
+
+  <view class='rulestyle'>
+    <text class='ruletest'>提现规则：</text>
+    <text class='ruletest1'>1. 每笔提现金额不得低于1.00元，不得超过2000元</text>
+    <text class='ruletest1'>2. 每日提现操作不得超过3笔</text>
+    <text class='ruletest1'>3. 提现金额会实时到账至微信零钱</text>
+  </view>
+
+
+
+
+
+
+</view>

@@ -16,13 +16,22 @@
     "pages/charts/ring/ring",
     "pages/charts/scrollline/scrollline",
     "pages/newUser/newUser",
-    "pages/common/common"
+    "pages/common/common",
+    "pages/invitation/invitation",
+    "pages/census/census",
+    "pages/wallet/wallet",
+    "pages/deposit/deposit",
+    "pages/detailed/detailed",
+    "pages/money/money",
+    "pages/recharge/recharge",
+    "pages/recharge2/recharge2",
+    "pages/rule/rule"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "white",
     "navigationBarTitleText": "全域旅游",
     "navigationBarTextStyle": "black",
-    "enablePullDownRefresh":true
+    "enablePullDownRefresh": true
   }
 }

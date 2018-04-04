@@ -1,0 +1,24 @@
+/* pages/money/money.wxss */
+
+.centon {
+  padding: 0 15px;
+}
+
+.centonstyle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  margin: 15px 0;
+  padding-bottom: 15px;
+  border-bottom: 1px #dedede solid;
+}
+
+.centontest {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  color: #8d8d8d;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,17 @@
+<!--pages/deposit/deposit.wxml-->
+<view class='viewbox'>
+<view class='namebox'><text>微信名</text><text style='font-size:17px;color:#cfcfcf'>name</text ></view>
+
+<view class='namebox'>
+<text>提现金额</text>
+<view class='namebox1'>
+<input type='digit' style='font-size:16px;width:100px;text-align:right;' placeholder-style='color:#CFCFCF' placeholder='输入提现金额'></input><text style='font-size:17px;margin-left:5px'>元</text>
+
+</view>
+
+</view>
+
+<view class='viewbox2'><text style='margin-right: 16px'>当前最大可提现金额19.00元</text><text style='color:#576B96'>全部提现</text></view>
+
+<button bindtap='toast'>确 认</button>
+</view>

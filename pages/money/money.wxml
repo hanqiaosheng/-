@@ -1,0 +1,8 @@
+<!--pages/money/money.wxml-->
+<view class='centon'>
+<view class='centonstyle'><text>出（入）账金额</text><text>123</text></view>
+<view class='centontest'><text>类型</text><text>收入</text></view>
+<view class='centontest'><text>时间</text><text>123</text></view>
+<view class='centontest'><text>交易单号</text><text>123</text></view>
+<view class='centontest'><text>剩余金额</text><text>123</text></view>
+</view>

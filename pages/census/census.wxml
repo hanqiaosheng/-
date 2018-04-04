@@ -1,0 +1,110 @@
+<!--pages/census/census.wxml-->
+<!--导航条-->
+<view class="navbar"> 
+ <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text> 
+</view> 
+  
+<!--日-->
+<view hidden="{{currentTab!==0}}"> 
+<view  class='swiper-item'>
+  <view>
+  <view><text class='testzi'  style='padding-right:24px'>奖</text><text class='testzi'> 励：</text><text class='testzi'>20元</text></view>
+  <view><text class='testzi'>额外奖励：</text><text class='testzi'>20元</text></view>
+  <view><text class='testzi'   style='padding-right:24px'>合</text><text class='testzi'> 计：</text><text class='testzi'>20元</text></view>
+  </view>
+  <view class='testright'><text class='testzi1'>22日</text><text class='testzi2'>2018年3月</text></view>
+</view>
+
+<view class='rudstyle'>
+<view class='rudstyle1'>
+<view>
+<text style='font-size:28px;border-bottom:2px solid #fff;color:#fff'>8</text><text style='font-size:16px;color:#fff'>人</text>
+</view>
+<view>
+<text style='font-size:16px;color:#fff'>骑行人数</text>
+</view>
+</view>
+</view>
+
+<view class='bottest'>2018年3月29日</view>
+</view> 
+
+
+  
+<!--月-->
+<view hidden="{{currentTab!==1}}"> 
+<view  class='swiper-item'>
+  <view>
+  <view><text class='testzi'  style='padding-right:24px'>奖</text><text class='testzi'> 励：</text><text class='testzi'>24610元</text></view>
+  <view><text class='testzi'>额外奖励：</text><text class='testzi'>6410元</text></view>
+  <view><text class='testzi'   style='padding-right:24px'>合</text><text class='testzi'> 计：</text><text class='testzi'>20648元</text></view>
+  </view>
+  <view class='testright'><text class='testzi2'>2018年3月</text></view>
+</view>
+
+<view class='rudstyle'>
+<view class='rudstyle1'>
+<view>
+<text style='font-size:28px;border-bottom:2px solid #fff;color:#fff'>8564</text><text style='font-size:16px;color:#fff'>人</text>
+</view>
+<view>
+<text style='font-size:16px;color:#fff'>骑行人数</text>
+</view>
+</view>
+</view>
+
+<view class='bottest'>2018年3月</view>
+</view>  
+  
+<!--年-->
+<view hidden="{{currentTab!==2}}"> 
+<view  class='swiper-item'>
+  <view>
+  <view><text class='testzi'  style='padding-right:24px'>奖</text><text class='testzi'> 励：</text><text class='testzi'>20856元</text></view>
+  <view><text class='testzi'>额外奖励：</text><text class='testzi'>20841元</text></view>
+  <view><text class='testzi'   style='padding-right:24px'>合</text><text class='testzi'> 计：</text><text class='testzi'>36598元</text></view>
+  </view>
+  <view class='testright'><text class='testzi2'>2018年</text></view>
+</view>
+
+<view class='rudstyle'>
+<view class='rudstyle1'>
+<view>
+<text style='font-size:28px;border-bottom:2px solid #fff;color:#fff'>81650</text><text style='font-size:16px;color:#fff'>人</text>
+</view>
+<view>
+<text style='font-size:16px;color:#fff'>骑行人数</text>
+</view>
+</view>
+</view>
+
+<view class='bottest'>2018年</view>
+</view> 
+
+<view>
+<view class='casetest'>
+<text>遊客姓名</text>
+<text>电话</text>
+<text>骑行状态</text>
+</view>
+
+<view wx:for="{{expertList}}" wx:key="index" class='casetest1 {{item.isFsas ? "testcolor" : ""}}' wx:if="{{currentTab==0}}">
+<text>{{item.name}}</text>
+<text>{{item.phone}}</text>
+<text>{{item.answer}}</text>
+</view>
+
+<view wx:for="{{expertList1}}" wx:key="index" class='casetest1 {{item.isFsas ? "testcolor" : ""}}' wx:if="{{currentTab==1}}">
+<text>{{item.name}}</text>
+<text>{{item.phone}}</text>
+<text>{{item.answer}}</text>
+</view>
+
+<view wx:for="{{expertList1}}" wx:key="index" class='casetest1 {{item.isFsas ? "testcolor" : ""}}' wx:if="{{currentTab==2}}">
+<text>{{item.name}}</text>
+<text>{{item.phone}}</text>
+<text>{{item.answer}}</text>
+</view>
+
+
+</view>

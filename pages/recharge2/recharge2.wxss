@@ -1,0 +1,36 @@
+/* pages/recharge2/recharge2.wxss */
+
+.content {
+  padding: 15px 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contenttest {
+  font-size: 16px;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px #e3e3e3 solid;
+}
+
+.rechage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+button {
+  margin: 0;
+  background-color: #50cc98;
+  color: white;
+}
+
+.ruletext {
+  font-size: 16px;
+  margin: 12px 0;
+}
+
+.ruletest {
+  font-size: 14px;
+  color: #afafaf;
+}

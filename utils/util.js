@@ -26,6 +26,7 @@ const login = () => {
             code: res.code
           },
           success: res2 => {
+            
             if (res2.statusCode != 200) {
               wx.showModal({
                 title: 'error',

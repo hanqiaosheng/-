@@ -34,13 +34,123 @@ Page({
       })
     }
   },
-  //点击切换
+  //点击切换全部
   mySelect: function (e) {
-    this.setData({
-      firstPerson: e.target.dataset.me,
-      selectPerson: true,
-      selectArea: false,
+    var that = this
+    wx.getStorage({
+      key: 'guideId',
+      success: res => {
+        wx.request({
+          url: app.globalData.url + '/group/groupList.action',
+          data: {
+            guideId: res.data
+          },
+
+          success: res => {
+            
+            var d = new Date()
+            res.data.groupList.forEach(function (v, i, a) {
+              d.setTime(v.guideGroupStartTime)
+              v.startTime = d.toLocaleDateString()
+              v.show = true   
+              if (v.guideGroupEndTime > new Date().valueOf()
+                // &&new Date().valueOf() > v.guideGroupStartTime
+              ) {//判断是否在团开锁结束时间内 以控制出团状态
+              v.isNow=true
+               
+              }
+            })
+            this.setData({
+              groupList: res.data.groupList.sort(that.sortDate),
+                firstPerson: '全部',
+              selectPerson: true,
+              selectArea: false,
+            })
+          },
+     
+        })
+      },
+ 
     })
+
+  },
+  //点击切换已出团
+  mySelect1: function (e) {
+    var that = this
+    wx.getStorage({
+      key: 'guideId',
+      success: res => {
+        wx.request({
+          url: app.globalData.url + '/group/groupList.action',
+          data: {
+            guideId: res.data
+          },
+
+          success: res => {
+
+            var d = new Date()
+            res.data.groupList.forEach(function (v, i, a) {
+              d.setTime(v.guideGroupStartTime)
+              v.startTime = d.toLocaleDateString()
+              if (v.guideGroupEndTime < new Date().valueOf()
+                // &&new Date().valueOf() > v.guideGroupStartTime
+              ) {//判断是否在团开锁结束时间内 以控制出团状态
+               
+                v.show = true
+              }
+            })
+            this.setData({
+              groupList: res.data.groupList.sort(that.sortDate),
+              firstPerson: '已出团',
+              selectPerson: true,
+              selectArea: false,
+            })
+          },
+
+        })
+      },
+
+    })
+
+  },
+  //点击切换待出团
+  mySelect2: function (e) {
+    var that = this
+    wx.getStorage({
+      key: 'guideId',
+      success: res => {
+        wx.request({
+          url: app.globalData.url + '/group/groupList.action',
+          data: {
+            guideId: res.data
+          },
+
+          success: res => {
+
+            var d = new Date()
+            res.data.groupList.forEach(function (v, i, a) {
+              d.setTime(v.guideGroupStartTime)
+              v.startTime = d.toLocaleDateString()
+              if (v.guideGroupEndTime > new Date().valueOf()
+                // &&new Date().valueOf() > v.guideGroupStartTime
+              ) {//判断是否在团开锁结束时间内 以控制出团状态
+                v.isNow = true
+                v.show = true
+              }
+            })
+            this.setData({
+              groupList: res.data.groupList.sort(that.sortDate),
+              firstPerson: '待出团',
+              selectPerson: true,
+              selectArea: false,
+            })
+          },
+
+        })
+      },
+
+    })
+
   },
 
   powerDrawer: function (e) {
@@ -168,7 +278,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      path: '/pages/group/group',
+      path: '/pages/group/group'
     }
   },
 
@@ -211,10 +321,12 @@ Page({
               })
               return
             }
+           
             var d = new Date()
             res.data.groupList.forEach(function (v, i, a) {
               d.setTime(v.guideGroupStartTime)
               v.startTime = d.toLocaleDateString()
+              v.show = true
               if (v.guideGroupEndTime > new Date().valueOf()
                 // &&new Date().valueOf() > v.guideGroupStartTime
               ) {//判断是否在团开锁结束时间内 以控制出团状态
@@ -222,9 +334,11 @@ Page({
               }
             })
             this.setData({
-              groupList: res.data.groupList.sort(that.sortDate)
+              groupList: res.data.groupList.sort(that.sortDate),
+              firstPerson: '全部',
+              selectPerson: true,
+              selectArea: false,
             })
-            console.log(that.sortDate)
           },
           complete: function () {
             wx.hideLoading()

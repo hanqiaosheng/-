@@ -1,5 +1,6 @@
 // pages/qrcode/qrcode.js
 const app = getApp()
+const util = require('../../utils/util.js')
 Page({
 
   /**
@@ -17,6 +18,7 @@ Page({
     this.setData({
       groupId: options.groupId
     })
+    console.log(options.groupId)
   },
 
   /**

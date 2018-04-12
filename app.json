@@ -1,5 +1,6 @@
 {
   "pages": [
+   
     "pages/group/group",
     "pages/index/index",
     "pages/qrcode/qrcode",
@@ -24,7 +25,7 @@
     "pages/detailed/detailed",
     "pages/money/money",
     "pages/recharge/recharge",
-    "pages/recharge2/recharge2",
+  "pages/recharge2/recharge2",
     "pages/rule/rule"
   ],
   "window": {

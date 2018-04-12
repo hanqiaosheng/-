@@ -2,8 +2,7 @@
 <view style='padding:0 15px'>
 <view class='contail'>
   <image src='../../pic/mark2.jpg' mode='aspectFit' class='qrimg' bindtap='shareQrCode'></image>
-  <!-- <button size='mini' class='sharebtn' disabled='{{group.isNow==1?false:true}}' open-type="share">点击分享给游客</button> -->
-  <button size='mini' class='sharebtn'  type='warn' disabled='{{group.isNow?false:true}}' bindtap='shareQrCode'>
+  <button size='mini' class='sharebtn'  type='warn'  open-type="share" style='background:#FF8361'>
   <text class='invitest'>点击邀请好友</text></button>
 </view>
 
@@ -19,15 +18,15 @@
 <text class='headtext'>今日成功邀请0人</text>
 </view> 
 
-  <view wx:if="{{!userList.length}}" class='tip'>还没有添加游客</view> 
- <view wx:if="{{userList.length}}" class='header2'> 
+  <view wx:if="{{!groupList.length}}" class='tip'>还没有添加游客</view> 
+ <view wx:if="{{groupList.length}}" class='header2'> 
   <text class='head2text'>用户</text>
   <text class='head2text'>骑行状态</text>
 </view> 
-<view class="cont">
-      <view  class="cont-name">
-      <text class='conttest1'>123xxxxx4567</text>
-      <text class='conttest2'>12313</text>
+<view class="cont" wx:for="{{groupList}}">
+      <view  class="cont-name" >
+      <text class='conttest1'>{{b}}</text>
+      <text class='conttest2'>{{item.startTime}}</text>
       </view>
       <view  class="conttest"> 骑行中</view>
 </view>

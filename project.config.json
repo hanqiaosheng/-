@@ -2,7 +2,7 @@
 	"description": "项目配置文件。",
 	"setting": {
 		"urlCheck": true,
-		"es6": false,
+		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true
@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.1",
 	"appid": "wxf1ac1446cfa0ca65",
-	"projectname": "guide3",
+	"projectname": "wxguide3",
 	"isGameTourist": false,
 	"condition": {
 		"search": {

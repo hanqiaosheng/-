@@ -59,8 +59,8 @@
 <view class="person_box">
   <view class="phone_select" hidden="{{selectPerson}}">
     <view class="select_one" bindtap="mySelect" data-me="全部">全部</view>
-    <view class="select_one" bindtap="mySelect" data-me="已出团">已出团</view>
-    <view class="select_one" bindtap="mySelect" data-me="待出团">待出团</view>
+    <view class="select_one" bindtap="mySelect1" data-me="已出团">已出团</view>
+    <view class="select_one" bindtap="mySelect2" data-me="待出团">待出团</view>
   </view>
 
   <!--mask-->
@@ -100,7 +100,7 @@
         <text class='test'>我的押金</text>
         <image src='../../pic/0328-9.png' class='qimge1'></image>
       </navigator>
-      <navigator wx:else url='/pages/recharge2/recharge2' class="drawer_title lin">
+      <navigator wx:else url='/pages/recharge2/recharge2?ismoney={{ismoney}}' class="drawer_title lin">
         <image src='../../pic/0328-8.png' class='qimge'></image>
         <text class='test'>我的押金</text>
         <image src='../../pic/0328-9.png' class='qimge1'></image>
@@ -124,7 +124,7 @@
   <text class='groupListText1'>请联系旅行社建团哦~</text>
 </view>
 <view wx:if="{{groupList.length}}" class='group'>
-  <navigator url="/pages/qrcode/qrcode?groupId={{item.guideGroupId}}" open-type="navigate" class="{{(item.isNow!=1) ? cssgroupList : cssgroupList2}}" wx:for="{{groupList}}">
+  <navigator url="/pages/qrcode/qrcode?groupId={{item.guideGroupId}}" open-type="navigate" class="{{(item.isNow!=1) ? cssgroupList : cssgroupList2}}" wx:for="{{groupList}}" wx:if="{{item.show}}">
 
     <view class="groupList3" style='background:url("../../pic/logo.jpg") center/100% no-repeat;opacity: 0.7' wx:if="{{item.isNow==1}}">
       <text class='test-group'>待出团</text>
